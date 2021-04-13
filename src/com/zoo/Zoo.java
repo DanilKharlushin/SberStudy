@@ -1,6 +1,6 @@
 package com.zoo;
 
-public class Main {
+public class Zoo {
     public static void main(String[] args) {
 
     }
