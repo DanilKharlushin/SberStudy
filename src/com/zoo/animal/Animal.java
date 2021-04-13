@@ -2,8 +2,8 @@ package com.zoo.animal;
 
 public abstract class Animal {
 
-    private String name;
-    private int age;
+    protected String name;
+    protected int age;
 
     public Animal(String name, int age) {
         this.name = name;
@@ -27,9 +27,12 @@ public abstract class Animal {
         this.age = age;
     }
 
-    public abstract void say();
-
     public abstract void setName(String name);
 
+    public abstract void say();
+
+    public abstract void eat();
+
+    public abstract void sleep();
 
 }
