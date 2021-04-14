@@ -4,7 +4,10 @@ import com.zoo.animal.Lion;
 
 public class Zoo {
     public static void main(String[] args) {
-        Lion lion = new Lion("asqw", 23);
-        System.out.println(lion.getName());
+        Lion lion = new Lion(" ", 23);
+        lion.setName("Simba");
+        lion.say();
+        lion.eat();
+        lion.fight();
     }
 }

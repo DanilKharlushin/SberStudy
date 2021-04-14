@@ -1,6 +1,6 @@
 package com.zoo.animal;
 
-public class Tiger extends Animal {
+public class Tiger extends Animal implements Fightable, Wash {
 
     public Tiger(String name, int age) {
         super(name, age);
@@ -18,11 +18,21 @@ public class Tiger extends Animal {
 
     @Override
     public void eat() {
-        System.out.println("Desert eagle " + this.name + " eats");
+        System.out.println("Tiger " + this.name + " eats");
     }
 
     @Override
     public void sleep() {
-        System.out.println("Desert eagle " + this.name + " sleeps");
+        System.out.println("Tiger " + this.name + " sleeps");
+    }
+
+    @Override
+    public void fight() {
+        System.out.println("Tiger " + this.name + " fights");
+    }
+
+    @Override
+    public void wash() {
+        System.out.println("Tiger " + this.name + " is washing up");
     }
 }

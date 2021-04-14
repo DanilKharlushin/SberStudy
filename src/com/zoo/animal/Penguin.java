@@ -1,6 +1,6 @@
 package com.zoo.animal;
 
-public class Penguin extends Animal {
+public class Penguin extends Animal implements Moveable, Swimmable {
 
     public Penguin(String name, int age) {
         super(name, age);
@@ -24,5 +24,15 @@ public class Penguin extends Animal {
     @Override
     public void sleep() {
         System.out.println("Penguin " + this.name + " sleeps");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Penguin " + this.name + " moves");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("Penguin " + this.name + " swims");
     }
 }

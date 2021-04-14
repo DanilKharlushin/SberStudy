@@ -1,6 +1,6 @@
 package com.zoo.animal;
 
-public class Wolf extends Animal {
+public class Wolf extends Animal implements Moveable, Fightable {
 
     public Wolf(String name, int age) {
         super(name, age);
@@ -24,5 +24,15 @@ public class Wolf extends Animal {
     @Override
     public void sleep() {
         System.out.println("Wolf " + this.name + " sleeps");
+    }
+
+    @Override
+    public void fight() {
+        System.out.println("Wolf " + this.name + " fights");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Wolf " + this.name + " moves");
     }
 }

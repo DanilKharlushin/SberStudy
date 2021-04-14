@@ -1,6 +1,6 @@
 package com.zoo.animal;
 
-public class Lion extends Animal {
+public class Lion extends Animal implements Wash, Fightable {
 
     public Lion(String name, int age) {
         super(name, age);
@@ -24,5 +24,15 @@ public class Lion extends Animal {
     @Override
     public void sleep() {
         System.out.println("Lion " + this.name + " sleeps");
+    }
+
+    @Override
+    public void fight() {
+        System.out.println("Lion " + this.name + " fights");
+    }
+
+    @Override
+    public void wash() {
+        System.out.println("Lion " + this.name + " is washing up");
     }
 }
