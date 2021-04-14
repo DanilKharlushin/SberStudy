@@ -1,5 +1,8 @@
 package com.zoo.animal;
 
+import com.zoo.exception.EmptyNameException;
+import com.zoo.exception.IncorrectAgeException;
+
 public class Wolf extends Animal implements Moveable, Fightable {
 
     public Wolf(String name, int age) {
@@ -7,8 +10,19 @@ public class Wolf extends Animal implements Moveable, Fightable {
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public void setAge(int age) throws IncorrectAgeException {
+        if (age <= 0) {
+            throw new IncorrectAgeException();
+        } else
+            this.age = age;
+    }
+
+    @Override
+    public void setName(String name) throws EmptyNameException {
+        if (name.equals("")) {
+            throw new EmptyNameException();
+        } else
+            this.name = name;
     }
 
     @Override

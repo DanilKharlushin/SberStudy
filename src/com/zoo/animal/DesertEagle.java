@@ -1,6 +1,9 @@
 package com.zoo.animal;
 
 
+import com.zoo.exception.EmptyNameException;
+import com.zoo.exception.IncorrectAgeException;
+
 public class DesertEagle extends Animal implements Moveable, Flyable {
 
     public DesertEagle(String name, int age) {
@@ -8,8 +11,19 @@ public class DesertEagle extends Animal implements Moveable, Flyable {
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public void setAge(int age) throws IncorrectAgeException {
+        if (age <= 0) {
+            throw new IncorrectAgeException();
+        } else
+            this.age = age;
+    }
+
+    @Override
+    public void setName(String name) throws EmptyNameException {
+        if (name.equals("")) {
+            throw new EmptyNameException();
+        } else
+            this.name = name;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package com.zoo.animal;
 
+import com.zoo.exception.EmptyNameException;
+import com.zoo.exception.IncorrectAgeException;
+
 public abstract class Animal {
 
     protected String name;
@@ -23,11 +26,9 @@ public abstract class Animal {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public abstract void setAge(int age) throws IncorrectAgeException;
 
-    public abstract void setName(String name);
+    public abstract void setName(String name) throws EmptyNameException;
 
     public abstract void say();
 
