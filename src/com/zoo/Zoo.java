@@ -3,13 +3,10 @@ package com.zoo;
 import com.zoo.animal.DesertEagle;
 import com.zoo.animal.Lion;
 import com.zoo.animal.Penguin;
-import com.zoo.exception.DifferentAnimalException;
-import com.zoo.exception.EmptyNameException;
-import com.zoo.exception.IncorrectAgeException;
-import com.zoo.exception.OverflowAviaryException;
+import com.zoo.exception.*;
 
 public class Zoo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NonExistentAviaryException, OverflowAviaryException, DifferentAnimalException {
         Lion lion = new Lion("Simba", 23);
         lion.say();
         lion.eat();
@@ -20,23 +17,29 @@ public class Zoo {
 
         DesertEagle eagle1 = new DesertEagle("Wing", 5);
         DesertEagle eagle2 = new DesertEagle("Flight", 5);
-        /*try {
-            eagle.setName("");
-        } catch (EmptyNameException e) {
+
+
+        var aviary1 = new Aviary(1);
+        var aviary2 = new Aviary(2);
+        var aviary3 = new Aviary(6);
+        var aviary4 = new Aviary(2);
+        var aviary5 = new Aviary(12);
+        var aviary6 = new Aviary(8);
+
+        Aviaries zoo = new Aviaries();
+        try {
+            zoo.addAviary(aviary1);
+            zoo.addAviary(aviary2);
+            zoo.addAviary(aviary3);
+            zoo.addAviary(aviary4);
+            zoo.addAviary(aviary5);
+        } catch (AddingAviaryException e) {
             e.printStackTrace();
         }
 
         try {
-            eagle.setAge(-1);
-        } catch (IncorrectAgeException e) {
-            e.printStackTrace();
-        }*/
-
-        var aviary1 = new Aviary(1);
-        try {
-            aviary1.place(eagle1);
-            aviary1.place(eagle2);
-        } catch (DifferentAnimalException | OverflowAviaryException e) {
+            aviary6.place(eagle1, zoo, 6);
+        } catch (NonExistentAviaryException e) {
             e.printStackTrace();
         }
     }
