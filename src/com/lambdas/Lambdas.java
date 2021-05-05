@@ -90,13 +90,7 @@ public class Lambdas {
 
     public static <T> T foldRight(List<T> origin, BinaryOperator<T> binaryOperator) {
        Collections.reverse(origin);
-       Iterator<T> iterator = origin.iterator();
-       T result = iterator.next();
-       while (iterator.hasNext()) {
-           T i = iterator.next();
-           result = binaryOperator.apply(result, i);
-           iterator.remove();
-       }
+       T result = foldLeft(origin, binaryOperator);
 
        return result;
     }
